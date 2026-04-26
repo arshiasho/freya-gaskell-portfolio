@@ -277,10 +277,8 @@
 
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    max-width: 85%;
-    margin: 0 auto;
   }
 
   .portfolio-card {
@@ -583,7 +581,7 @@
   @media (max-width: 900px) {
     .portfolio-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
     .resume-columns {
       grid-template-columns: 1fr;
@@ -814,18 +812,10 @@
       <div class="card-img"><img src="img/familiar-spaces/01.jpg" alt="Familiar Spaces" loading="lazy"></div>
       <p class="card-title">Familiar Spaces</p>
     </a>
-    <div class="portfolio-card reveal" data-project="modern-dandy">
+    <a class="portfolio-card reveal" href="projects/modern-dandy.html">
       <div class="card-img"><img src="img/modern-dandy.jpg" alt="Modern Dandy" loading="lazy"></div>
       <p class="card-title">Modern Dandy</p>
-    </div>
-    <div class="portfolio-card reveal" data-project="after-hours">
-      <div class="card-img"><img src="img/after-hours.JPG" alt="After Hours" loading="lazy"></div>
-      <p class="card-title">After Hours</p>
-    </div>
-    <div class="portfolio-card reveal" data-project="commercial-design">
-      <div class="card-img"><img src="img/commercial-design.PNG" alt="Commercial Design" loading="lazy"></div>
-      <p class="card-title">Commercial Design</p>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -983,21 +973,6 @@
       img: 'img/familar-spaces.JPG',
       desc: 'Inspired by the emotional resonance of domestic interiors, Familiar Spaces translates the textures, colours and comfort of home into wearable form. Upholstery-weight fabrics, soft knits and muted tones evoke a sense of warmth and belonging. The silhouettes are generous and enveloping, designed to be lived in.'
     },
-    'modern-dandy': {
-      title: 'Modern Dandy',
-      img: 'img/modern-dandy.jpg',
-      desc: 'A contemporary take on dandyism that deconstructs the archetypal suit. Over-scaled proportions, unexpected fabric pairings and hand-finished details create a wardrobe for the modern non-conformist. The collection challenges conventions of gendered dressing while celebrating craft and attention to detail.'
-    },
-    'after-hours': {
-      title: 'After Hours',
-      img: 'img/after-hours.JPG',
-      desc: 'After Hours explores evening dressing with a quiet confidence. Moving away from embellishment and excess, the collection focuses on sculptural simplicity — clean lines, luxurious materials and considered proportion. Each piece is designed for the moment between day and night, work and leisure.'
-    },
-    'commercial-design': {
-      title: 'Commercial Design',
-      img: 'img/commercial-design.PNG',
-      desc: 'A commercially-driven project developed in collaboration with industry partners. The brief focused on trend forecasting, cost-effective material sourcing and scalable production methods. The resulting capsule collection balances market viability with strong design identity, demonstrating an understanding of the full product development pipeline.'
-    }
   };
 
   /* ── Open project ── */

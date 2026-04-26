@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Between Seasons — Freya Gaskell</title>
-<meta name="description" content="Between Seasons — a transeasonal outerwear project by Freya Gaskell. A wool pea coat constructed using Hainsworth wool, exploring transformation and adaptability.">
+<title>The Modern Dandy — Freya Gaskell</title>
+<meta name="description" content="The Modern Dandy — a project by Freya Gaskell. A pink and green suit paired with a Liberty's floral shirt, challenging traditional menswear through bold colour, pattern and classic tailoring.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
 <style>
@@ -251,30 +251,30 @@
   }
 
   /* ═══════════════════════════════════
-     PHOTO TRIPLE SECTION
+     PHOTO PAIR SECTION
   ═══════════════════════════════════ */
-  .photo-triple-section {
+  .photo-pair-section {
     padding: 80px 8%;
   }
-  .photo-triple {
+  .photo-pair {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
     max-width: 1400px;
     margin: 0 auto;
   }
-  .photo-triple .photo {
+  .photo-pair .photo {
     aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--light-grey);
     cursor: zoom-in;
   }
-  .photo-triple img {
+  .photo-pair img {
     width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
   }
-  .photo-triple .photo:hover img { transform: scale(1.02); }
+  .photo-pair .photo:hover img { transform: scale(1.02); }
 
   /* ═══════════════════════════════════
      PROJECT FOOTER
@@ -345,18 +345,17 @@
   ═══════════════════════════════════ */
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .photo-triple { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 600px) {
     .page-section { padding: 60px 5%; }
-    .spread-section, .photo-triple-section { padding: 50px 5%; }
+    .spread-section, .photo-pair-section { padding: 50px 5%; }
     #project-hero { padding-top: 90px; padding-bottom: 60px; }
     .project-title { font-size: clamp(2.2rem, 10vw, 3.5rem); letter-spacing: 0.02em; }
     .breadcrumb { margin-bottom: 28px; font-size: 0.7rem; }
     .hero-copy p { font-size: 0.95rem; }
     .hero-photos { gap: 10px; }
-    .photo-triple { grid-template-columns: 1fr; gap: 16px; }
+    .photo-pair { gap: 12px; }
     .spread { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); }
     .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
     .lightbox { padding: 20px; }
@@ -390,20 +389,21 @@
     Portfolio
   </a>
 
-  <span class="section-label reveal" style="--delay:280ms">Freya Gaskell · Transeasonal Outerwear</span>
-  <h1 class="project-title reveal" style="--delay:420ms">Between<br>Seasons</h1>
+  <span class="section-label reveal" style="--delay:280ms">Freya Gaskell · Tailoring</span>
+  <h1 class="project-title reveal" style="--delay:420ms">The Modern<br>Dandy</h1>
 
   <div class="hero-grid">
     <div class="hero-copy reveal" style="--delay:580ms">
-      <p>I designed and constructed a wool pea coat using Hainsworth wool. The theme was transeasonal, which I explored by incorporating an adjustable cape and skirt into the jacket to create a sense of transformation and adaptability.</p>
-      <p>I also integrated vents within the smocked panels to improve airflow. Each vent was concealed within a floral smocking detail and finished with an inner eyelet for a clean, refined look.</p>
+      <p>I created a pink and green suit paired with a Liberty's floral shirt, inspired by the idea of the modern dandy.</p>
+      <p>The look plays with bold colour and pattern to challenge traditional menswear, drawing on classic tailoring and reimagining it in a contemporary way.</p>
+      <p>The styling and design choices are all about confidence and self-expression.</p>
     </div>
     <div class="hero-photos reveal" style="--delay:720ms">
-      <div class="photo" data-zoom="../img/between-seasons/01.jpg">
-        <img src="../img/between-seasons/01.jpg" alt="Between Seasons — front view" loading="lazy">
+      <div class="photo" data-zoom="../img/modern-dandy/01.jpg">
+        <img src="../img/modern-dandy/01.jpg" alt="The Modern Dandy — front view in pink and green suit" loading="lazy">
       </div>
-      <div class="photo" data-zoom="../img/between-seasons/02.jpg">
-        <img src="../img/between-seasons/02.jpg" alt="Between Seasons — side view" loading="lazy">
+      <div class="photo" data-zoom="../img/modern-dandy/02.jpg">
+        <img src="../img/modern-dandy/02.jpg" alt="The Modern Dandy — crouching pose in pink suit" loading="lazy">
       </div>
     </div>
   </div>
@@ -412,31 +412,28 @@
 <!-- ════════ MOODBOARD ════════ -->
 <section class="spread-section">
   <span class="spread-label reveal">Moodboard</span>
-  <div class="spread reveal" data-zoom="../img/between-seasons/spread-moodboard.jpg">
-    <img src="../img/between-seasons/spread-moodboard.jpg" alt="Between Seasons moodboard — transeasonal outerwear research and development" loading="lazy">
+  <div class="spread reveal" data-zoom="../img/modern-dandy/spread-03.jpg">
+    <img src="../img/modern-dandy/spread-03.jpg" alt="The Modern Dandy moodboard — references, sketches and fashion illustrations in pink and green" loading="lazy">
   </div>
 </section>
 
 <!-- ════════ TECHNICAL DRAWINGS ════════ -->
 <section class="spread-section">
   <span class="spread-label reveal">Technical Drawings</span>
-  <div class="spread reveal" data-zoom="../img/between-seasons/spread-technical.jpg">
-    <img src="../img/between-seasons/spread-technical.jpg" alt="Between Seasons technical drawings — construction details, materials and pattern" loading="lazy">
+  <div class="spread reveal" data-zoom="../img/modern-dandy/spread-04.jpg">
+    <img src="../img/modern-dandy/spread-04.jpg" alt="The Modern Dandy technical drawings — fabric swatches, flat drawings and Gerber pattern pieces for the suit and shirt" loading="lazy">
   </div>
 </section>
 
 <!-- ════════ FINAL SHOOT ════════ -->
-<section class="photo-triple-section">
+<section class="photo-pair-section">
   <span class="spread-label reveal">Final Shoot</span>
-  <div class="photo-triple">
-    <div class="photo reveal" data-zoom="../img/between-seasons/03.jpg">
-      <img src="../img/between-seasons/03.jpg" alt="Between Seasons — final shoot" loading="lazy">
+  <div class="photo-pair">
+    <div class="photo reveal" data-zoom="../img/modern-dandy/05.jpg">
+      <img src="../img/modern-dandy/05.jpg" alt="The Modern Dandy — final shoot, seated pose against green backdrop" loading="lazy">
     </div>
-    <div class="photo reveal" data-zoom="../img/between-seasons/04.jpg">
-      <img src="../img/between-seasons/04.jpg" alt="Between Seasons — final shoot" loading="lazy">
-    </div>
-    <div class="photo reveal" data-zoom="../img/between-seasons/05.jpg">
-      <img src="../img/between-seasons/05.jpg" alt="Between Seasons — final shoot" loading="lazy">
+    <div class="photo reveal" data-zoom="../img/modern-dandy/06.jpg">
+      <img src="../img/modern-dandy/06.jpg" alt="The Modern Dandy — final shoot, reclining pose against green backdrop" loading="lazy">
     </div>
   </div>
 </section>
