@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freya Gaskell — Fashion Design Portfolio</title>
+<meta name="description" content="Fashion design portfolio of Freya Gaskell — BA Fashion Design & Technology student at Manchester Metropolitan University. Projects, skills, resume and contact.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: rgba(201, 169, 110, 0.15);
+    --black: #111;
+    --white: #fff;
+    --grey: #888;
+    --light-grey: #f5f5f5;
+    --heading: 'Glacial Indifference', Helvetica, Arial, sans-serif;
+    --body: 'Glacial Indifference', Helvetica, Arial, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--body);
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ── Fade-in animation ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Section common ── */
+  section {
+    width: 100%;
+    padding: 100px 8%;
+    scroll-margin-top: 56px;
+  }
+
+  #hero {
+    scroll-margin-top: 0;
+  }
+
+  .section-heading {
+    font-family: var(--heading);
+    font-weight: 300;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+  }
+
+  .section-label {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  #contact .section-label {
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ═══════════════════════════════════
+     STICKY NAV
+  ═══════════════════════════════════ */
+  .sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 8%;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .sticky-nav.visible {
+    transform: translateY(0);
+  }
+
+  .sticky-nav-brand {
+    font-family: var(--heading);
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .sticky-nav-links {
+    display: flex;
+    gap: 28px;
+  }
+
+  .sticky-nav-links a {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey);
+    transition: color 0.3s;
+  }
+
+  .sticky-nav-links a:hover,
+  .sticky-nav-links a.active {
+    color: var(--black);
+  }
+
+  .sticky-nav-links a.active {
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  /* ═══════════════════════════════════
+     BACK TO TOP
+  ═══════════════════════════════════ */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 800;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, background 0.3s;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--gold);
+  }
+
+  .back-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ═══════════════════════════════════
+     HERO
+  ═══════════════════════════════════ */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0;
+    padding-bottom: 12vh;
+    position: relative;
+  }
+
+  .hero-banner {
+    width: 80%;
+    max-height: 45vh;
+    margin-top: 40px;
+    overflow: hidden;
+  }
+
+  .hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-content {
+    margin-top: auto;
+  }
+
+  .hero-nav {
+    position: absolute;
+    top: 40px;
+    right: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .hero-nav a {
+    transition: color 0.3s;
+  }
+
+  .hero-nav a:hover {
+    color: var(--gold);
+  }
+
+  .nav-link {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1.425rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    font-family: var(--heading);
+    font-weight: 300;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-family: var(--heading);
+    font-weight: 300;
+    font-size: clamp(3.2rem, 9vw, 7.5rem);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════
+     PORTFOLIO
+  ═══════════════════════════════════ */
+  #portfolio {
+    background: var(--white);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  .portfolio-card {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .portfolio-card .card-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--light-grey);
+  }
+
+  .portfolio-card .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio-card .card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .portfolio-card:hover .card-img::after {
+    opacity: 0.18;
+  }
+
+  .portfolio-card:hover .card-img img {
+    transform: scale(1.03);
+  }
+
+  .portfolio-card .card-title {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+
+  /* ── Project Detail Overlay ── */
+  .project-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .project-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .project-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 8%;
+  }
+
+  .project-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--black);
+    margin-bottom: 40px;
+    transition: color 0.3s;
+  }
+
+  .project-back:hover {
+    color: var(--gold);
+  }
+
+  .project-back svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .project-detail-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--light-grey);
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .project-detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-detail h2 {
+    font-family: var(--heading);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .project-detail p {
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    max-width: 640px;
+  }
+
+  /* ═══════════════════════════════════
+     SKILLS
+  ═══════════════════════════════════ */
+  #skills {
+    background: var(--light-grey);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0;
+  }
+
+  .skill-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-family: var(--heading);
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    letter-spacing: 0.06em;
+  }
+
+  /* ═══════════════════════════════════
+     RESUME
+  ═══════════════════════════════════ */
+  #resume {
+    background: var(--white);
+  }
+
+  .resume-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 80px;
+  }
+
+  .resume-col h3 {
+    font-family: var(--heading);
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: var(--gold);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0,0,0,0.12);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 7px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+
+  .timeline-year {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .timeline-desc {
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════ */
+  #contact {
+    background: var(--black);
+    color: var(--white);
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #contact .section-heading {
+    color: var(--white);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .contact-info a,
+  .contact-info span {
+    font-family: var(--heading);
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+  }
+
+  .contact-info a:hover {
+    color: var(--gold);
+  }
+
+  .contact-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px 0;
+  }
+
+  .contact-social {
+    display: flex;
+    gap: 30px;
+  }
+
+  .contact-social a {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: color 0.3s;
+  }
+
+  .contact-social a:hover {
+    color: var(--gold);
+  }
+
+  /* ═══════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════ */
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .resume-columns {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px 28px;
+      margin-top: 40px;
+    }
+    #hero {
+      padding-bottom: 8vh;
+    }
+    .nav-link {
+      font-size: 1.15rem;
+    }
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-banner {
+      width: 100%;
+    }
+    .sticky-nav-links {
+      gap: 20px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    section {
+      padding: 60px 5%;
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 8vw, 2.4rem);
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+    }
+
+    /* Hero */
+    #hero {
+      min-height: 100svh;
+      padding-bottom: 10vh;
+      padding-top: 30px;
+    }
+    .hero-banner {
+      margin-top: 20px;
+    }
+    .hero-nav {
+      gap: 12px 24px;
+      margin-top: 32px;
+    }
+    .nav-link {
+      font-size: 0.95rem;
+      padding: 6px 0;
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 14vw, 4.5rem);
+    }
+    .hero-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 100%;
+    }
+    .portfolio-card .card-img {
+      aspect-ratio: 4/5;
+    }
+    .portfolio-card .card-title {
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+
+    /* Project overlay */
+    .project-detail {
+      padding: 30px 5%;
+    }
+    .project-back {
+      margin-bottom: 24px;
+      padding: 8px 0;
+    }
+    .project-detail-img {
+      aspect-ratio: 4/3;
+      margin-bottom: 28px;
+    }
+    .project-detail h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .project-detail p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* Skills */
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .skill-item {
+      padding: 20px 0;
+      font-size: 1.05rem;
+    }
+
+    /* Resume */
+    .resume-col h3 {
+      font-size: 1.25rem;
+      margin-bottom: 28px;
+    }
+    .timeline-item {
+      margin-bottom: 28px;
+    }
+    .timeline-title {
+      font-size: 0.9rem;
+    }
+    .timeline-desc {
+      font-size: 0.82rem;
+    }
+
+    /* Contact */
+    #contact {
+      min-height: auto;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .contact-info a,
+    .contact-info span {
+      font-size: 1.05rem;
+      word-break: break-all;
+    }
+    .contact-social {
+      gap: 20px;
+    }
+    .contact-social a {
+      font-size: 0.8rem;
+      padding: 6px 0;
+    }
+    .hero-banner {
+      width: 100%;
+    }
+    .sticky-nav-brand {
+      font-size: 0.7rem;
+    }
+    .sticky-nav-links {
+      gap: 14px;
+    }
+    .sticky-nav-links a {
+      font-size: 0.7rem;
+    }
+    .back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 380px) {
+    section {
+      padding: 50px 4.5%;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+    }
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<!-- ════════ STICKY NAV ════════ -->
+<nav class="sticky-nav" id="stickyNav" aria-label="Main navigation">
+  <a href="#hero" class="sticky-nav-brand">Freya Gaskell</a>
+  <div class="sticky-nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ════════ BACK TO TOP ════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+</button>
+
+<section id="hero">
+  <nav class="hero-nav" aria-label="Page navigation">
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#resume" class="nav-link">Resume</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div class="hero-banner">
+    <img src="img/banner.JPG" alt="Freya Gaskell banner">
+  </div>
+  <div class="hero-content reveal">
+    <p class="hero-subtitle">Fashion Design</p>
+    <h1 class="hero-title">Freya<br>Gaskell</h1>
+  </div>
+</section>
+
+<!-- ════════ PORTFOLIO ════════ -->
+<section id="portfolio">
+  <span class="section-label reveal">Freya Gaskell</span>
+  <h2 class="section-heading reveal">Projects<br>Portfolio</h2>
+  <div class="portfolio-grid">
+    <a class="portfolio-card reveal" href="projects/the-feminine-dandy.html">
+      <div class="card-img"><img src="img/femine-dandy.jpg" alt="The Feminine Dandy" loading="lazy"></div>
+      <p class="card-title">The Feminine Dandy</p>
+    </a>
+    <div class="portfolio-card reveal" data-project="between-seasons">
+      <div class="card-img"><img src="img/between-seasons.jpg" alt="Between Seasons" loading="lazy"></div>
+      <p class="card-title">Between Seasons</p>
+    </div>
+    <div class="portfolio-card reveal" data-project="familiar-spaces">
+      <div class="card-img"><img src="img/familar-spaces.JPG" alt="Familiar Spaces" loading="lazy"></div>
+      <p class="card-title">Familiar Spaces</p>
+    </div>
+    <div class="portfolio-card reveal" data-project="modern-dandy">
+      <div class="card-img"><img src="img/modern-dandy.jpg" alt="Modern Dandy" loading="lazy"></div>
+      <p class="card-title">Modern Dandy</p>
+    </div>
+    <div class="portfolio-card reveal" data-project="after-hours">
+      <div class="card-img"><img src="img/after-hours.JPG" alt="After Hours" loading="lazy"></div>
+      <p class="card-title">After Hours</p>
+    </div>
+    <div class="portfolio-card reveal" data-project="commercial-design">
+      <div class="card-img"><img src="img/commercial-design.PNG" alt="Commercial Design" loading="lazy"></div>
+      <p class="card-title">Commercial Design</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROJECT OVERLAY ════════ -->
+<div class="project-overlay" id="projectOverlay" role="dialog" aria-modal="true" aria-label="Project detail">
+  <div class="project-detail">
+    <button class="project-back" id="projectBack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+      Back
+    </button>
+    <div class="project-detail-img">
+      <img id="projectImg" src="" alt="">
+    </div>
+    <h2 id="projectTitle"></h2>
+    <p id="projectDesc"></p>
+  </div>
+</div>
+
+<!-- ════════ SKILLS ════════ -->
+<section id="skills">
+  <span class="section-label reveal">Freya Gaskell</span>
+  <h2 class="section-heading reveal">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-item reveal">Pattern Cutting</div>
+    <div class="skill-item reveal">Sewing</div>
+    <div class="skill-item reveal">Adobe InDesign</div>
+    <div class="skill-item reveal">Adobe Photoshop</div>
+    <div class="skill-item reveal">Adobe Illustrator</div>
+    <div class="skill-item reveal">Gerber Technology</div>
+    <div class="skill-item reveal">CLO3D</div>
+    <div class="skill-item reveal">WGSN</div>
+    <div class="skill-item reveal">Fabric Knowledge</div>
+    <div class="skill-item reveal">Yarn Knowledge</div>
+  </div>
+</section>
+
+<!-- ════════ RESUME ════════ -->
+<section id="resume">
+  <span class="section-label reveal">Freya Gaskell</span>
+  <h2 class="section-heading reveal">Resume</h2>
+  <div class="resume-columns">
+
+    <!-- Education -->
+    <div class="resume-col reveal">
+      <h3>Education</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Sept 2022 — Present</div>
+          <div class="timeline-title">Manchester Metropolitan University</div>
+          <div class="timeline-desc">BA (Hons) Fashion Design &amp; Technology — Fashion Institute. Studying fashion process, production, sustainable technologies and fashion cultures.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Sept 2019 — June 2021</div>
+          <div class="timeline-title">BHASVIC Sixth Form College</div>
+          <div class="timeline-desc">Fine Art: A &nbsp;|&nbsp; Textile Design: A* &nbsp;|&nbsp; Philosophy: B</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Sept 2014 — June 2019</div>
+          <div class="timeline-title">Warden Park Academy</div>
+          <div class="timeline-desc">GCSEs including Art: 8, History: 7, Sociology: 6, Geography: 6, English: 6.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="resume-col reveal">
+      <h3>Experience</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">July 2024 — July 2025</div>
+          <div class="timeline-title">Fashion Design Intern — SKYLAND</div>
+          <div class="timeline-desc">Knitwear supplier experience with Boohoo, PrettyLittleThing, Meshki and more. Created CADs selected by brands, compiled trend reports, and liaised with factories in Bangladesh, China &amp; Turkey.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Feb 2022 — Present</div>
+          <div class="timeline-title">Sole Proprietor — Alam0de (Depop)</div>
+          <div class="timeline-desc">Sustainable online shop with 22,000 followers and top-rated seller status. Ranked 524 globally on Depop. Organised pop-up shops at Pixie Collective, Brighton.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Jan 2022 — May 2022</div>
+          <div class="timeline-title">Childcare Assistant — Kiddie Capers</div>
+          <div class="timeline-desc">Planned activities, maintained safety standards, and communicated with parents on children's progress.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Nov 2021 — Jan 2022</div>
+          <div class="timeline-title">JKA Clothing &amp; Nevaeh Jewellery</div>
+          <div class="timeline-desc">Warehouse operations, customer service and supporting fashion designers during peak trading periods.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Oct 2023</div>
+          <div class="timeline-title">Volunteer — Ed Hardy Sample Sale</div>
+          <div class="timeline-desc">Supported event operations at the Ed Hardy sample sale.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">July 2018</div>
+          <div class="timeline-title">Assistant Designer — CBF Turk Designs</div>
+          <div class="timeline-desc">One week of work experience assisting with design tasks.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact">
+  <span class="section-label reveal">Freya Gaskell</span>
+  <h2 class="section-heading reveal">Contact</h2>
+  <div class="contact-info reveal">
+    <a href="mailto:freyagaskell@icloud.com">freyagaskell@icloud.com</a>
+    <span>07711776291</span>
+  </div>
+  <div class="contact-divider reveal"></div>
+  <div class="contact-social reveal">
+    <a href="https://www.instagram.com/freyagaskelll" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://uk.linkedin.com/in/freya-gaskell" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+
+<script>
+(function() {
+  /* ── Reveal on scroll ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── Project data ── */
+  const projects = {
+    'the-feminine-dandy': {
+      title: 'The Feminine Dandy',
+      img: 'img/femine-dandy.jpg',
+      desc: 'An exploration of femininity through the lens of traditional dandyism. This collection reimagines structured menswear silhouettes with soft, romantic fabrics and delicate floral prints — bridging the gap between power dressing and the feminine aesthetic. Each piece balances precision tailoring with fluid draping, creating garments that feel both commanding and effortlessly graceful.'
+    },
+    'between-seasons': {
+      title: 'Between Seasons',
+      img: 'img/between-seasons.jpg',
+      desc: 'A transitional collection that captures the fleeting moments between autumn and spring. Drawing on natural textures and earthy palettes, the garments are designed to layer and adapt. The project investigates modularity in fashion — pieces that transform with the wearer through shifting weather and mood.'
+    },
+    'familiar-spaces': {
+      title: 'Familiar Spaces',
+      img: 'img/familar-spaces.JPG',
+      desc: 'Inspired by the emotional resonance of domestic interiors, Familiar Spaces translates the textures, colours and comfort of home into wearable form. Upholstery-weight fabrics, soft knits and muted tones evoke a sense of warmth and belonging. The silhouettes are generous and enveloping, designed to be lived in.'
+    },
+    'modern-dandy': {
+      title: 'Modern Dandy',
+      img: 'img/modern-dandy.jpg',
+      desc: 'A contemporary take on dandyism that deconstructs the archetypal suit. Over-scaled proportions, unexpected fabric pairings and hand-finished details create a wardrobe for the modern non-conformist. The collection challenges conventions of gendered dressing while celebrating craft and attention to detail.'
+    },
+    'after-hours': {
+      title: 'After Hours',
+      img: 'img/after-hours.JPG',
+      desc: 'After Hours explores evening dressing with a quiet confidence. Moving away from embellishment and excess, the collection focuses on sculptural simplicity — clean lines, luxurious materials and considered proportion. Each piece is designed for the moment between day and night, work and leisure.'
+    },
+    'commercial-design': {
+      title: 'Commercial Design',
+      img: 'img/commercial-design.PNG',
+      desc: 'A commercially-driven project developed in collaboration with industry partners. The brief focused on trend forecasting, cost-effective material sourcing and scalable production methods. The resulting capsule collection balances market viability with strong design identity, demonstrating an understanding of the full product development pipeline.'
+    }
+  };
+
+  /* ── Open project ── */
+  const overlay = document.getElementById('projectOverlay');
+  const projectImg = document.getElementById('projectImg');
+  const projectTitle = document.getElementById('projectTitle');
+  const projectDesc = document.getElementById('projectDesc');
+  const backBtn = document.getElementById('projectBack');
+
+  document.querySelectorAll('.portfolio-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // If the card is a link (has href), let the browser navigate — skip overlay.
+      if (card.tagName === 'A' && card.getAttribute('href')) return;
+      const key = card.dataset.project;
+      const p = projects[key];
+      if (!p) return;
+      projectImg.src = p.img;
+      projectImg.alt = p.title;
+      projectTitle.textContent = p.title;
+      projectDesc.textContent = p.desc;
+      overlay.classList.add('active');
+      overlay.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  /* ── Close project ── */
+  function closeProject() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  backBtn.addEventListener('click', closeProject);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeProject();
+  });
+
+  /* ── Focus trap in overlay ── */
+  overlay.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const focusable = overlay.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ── Sticky nav show/hide ── */
+  const stickyNav = document.getElementById('stickyNav');
+  const heroSection = document.getElementById('hero');
+  const stickyLinks = stickyNav.querySelectorAll('.sticky-nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateStickyNav() {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    stickyNav.classList.toggle('visible', heroBottom <= 60);
+  }
+  window.addEventListener('scroll', updateStickyNav, { passive: true });
+  updateStickyNav();
+
+  /* ── Active section highlight ── */
+  function updateActiveLink() {
+    let current = '';
+    const atBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10);
+    if (atBottom) {
+      current = 'contact';
+    } else {
+      sections.forEach(s => {
+        if (s.id === 'hero') return;
+        const rect = s.getBoundingClientRect();
+        if (rect.top <= 120) current = s.id;
+      });
+    }
+    stickyLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  /* ── Back to top ── */
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
