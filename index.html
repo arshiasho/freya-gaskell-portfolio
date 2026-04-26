@@ -1049,7 +1049,8 @@
   window.addEventListener('scroll', updateStickyNav, { passive: true });
   updateStickyNav();
 
-  /* ── Active section highlight ── */
+  /* ── Active section highlight + URL sync ── */
+  let lastHash = '';
   function updateActiveLink() {
     let current = '';
     const atBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10);
@@ -1065,6 +1066,11 @@
     stickyLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
+    const newHash = current ? '#' + current : location.pathname;
+    if (newHash !== lastHash) {
+      lastHash = newHash;
+      history.replaceState(null, '', newHash);
+    }
   }
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
