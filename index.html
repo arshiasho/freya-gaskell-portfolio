@@ -945,6 +945,15 @@
 
 <script>
 (function() {
+  /* ── Snap to hash on load (prevents smooth-scroll from top on back-navigation) ── */
+  history.scrollRestoration = 'manual';
+  window.addEventListener('load', function() {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: 'instant' });
+    }
+  });
+
   /* ── Reveal on scroll ── */
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
