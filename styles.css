@@ -416,7 +416,12 @@ a {
   .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
   .lightbox { padding: 20px; }
   .lightbox-close { top: 14px; right: 14px; width: 38px; height: 38px; }
-  .sticky-nav-brand { display: none; }
+  .sticky-nav {
+    transform: translateY(0);
+    transition: none;
+    padding: 12px 4%;
+  }
+  .sticky-nav-brand { letter-spacing: 0.1em; }
   .project-footer-inner {
     grid-template-columns: 1fr;
     gap: 32px;
