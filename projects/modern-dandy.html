@@ -5,368 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Modern Dandy — Freya Gaskell</title>
 <meta name="description" content="The Modern Dandy — a project by Freya Gaskell. A pink and green suit paired with a Liberty's floral shirt, challenging traditional menswear through bold colour, pattern and classic tailoring.">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freyagaskell.com/projects/modern-dandy.html">
+<meta property="og:title" content="The Modern Dandy — Freya Gaskell">
+<meta property="og:description" content="The Modern Dandy — a project by Freya Gaskell. A pink and green suit paired with a Liberty's floral shirt, challenging traditional menswear through bold colour and classic tailoring.">
+<meta property="og:image" content="https://freyagaskell.com/img/modern-dandy/01.jpg">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Modern Dandy — Freya Gaskell">
+<meta name="twitter:description" content="A pink and green suit with a Liberty floral shirt, reimagining classic tailoring through bold colour and self-expression.">
+<meta name="twitter:image" content="https://freyagaskell.com/img/modern-dandy/01.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
 <style>
-  /* ── Reset & Base ── */
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --gold: #C9A96E;
-    --gold-light: rgba(201, 169, 110, 0.15);
-    --black: #111;
-    --white: #fff;
-    --grey: #888;
-    --light-grey: #f5f5f5;
-    --heading: 'Glacial Indifference', Helvetica, Arial, sans-serif;
-    --body: 'Glacial Indifference', Helvetica, Arial, sans-serif;
-  }
-
-  html { scroll-behavior: smooth; font-size: 16px; }
-
-  body {
-    font-family: var(--body);
-    font-weight: 300;
-    color: var(--black);
-    background: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  ::selection { background: var(--gold); color: var(--white); }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-
-  /* ── Page curtain ── */
-  #pageCurtain {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    z-index: 9999;
-    pointer-events: none;
-    transition: opacity 0.7s ease;
-  }
-  #pageCurtain.lifted { opacity: 0; }
-
-  /* ── Fade-in animation ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    transition-delay: var(--delay, 0ms);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── Section common ── */
-  .page-section {
-    width: 100%;
-    padding: 100px 8%;
-    scroll-margin-top: 56px;
-  }
-
-  .section-label {
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--grey);
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  /* ═══════════════════════════════════
-     STICKY NAV
-  ═══════════════════════════════════ */
-  .sticky-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 900;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 8%;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-  }
-  .sticky-nav.visible { transform: translateY(0); }
-
-  .sticky-nav-brand {
-    font-family: var(--heading);
-    font-weight: 400;
-    font-size: 0.8rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-
-  .sticky-nav-back {
-    font-family: var(--body);
-    font-weight: 500;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--grey);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s;
-  }
-  .sticky-nav-back:hover { color: var(--black); }
-  .sticky-nav-back svg { width: 14px; height: 14px; }
-
-  /* ═══════════════════════════════════
-     BACK TO TOP
-  ═══════════════════════════════════ */
-  .back-to-top {
-    position: fixed;
-    bottom: 32px; right: 32px;
-    z-index: 800;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(10px);
-    transition: opacity 0.3s, transform 0.3s, background 0.3s;
-  }
-  .back-to-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
-  .back-to-top:hover { background: var(--gold); }
-  .back-to-top svg { width: 18px; height: 18px; }
-
-  /* ═══════════════════════════════════
-     PROJECT HERO
-  ═══════════════════════════════════ */
-  #project-hero {
-    padding-top: 120px;
-    padding-bottom: 100px;
-  }
-
-  .breadcrumb {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--grey);
-    margin-bottom: 40px;
-    transition: color 0.3s;
-  }
-  .breadcrumb:hover { color: var(--gold); }
-  .breadcrumb svg { width: 14px; height: 14px; }
-
-  .project-title {
-    font-family: var(--heading);
-    font-weight: 300;
-    font-size: clamp(3rem, 7.5vw, 6rem);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    text-transform: uppercase;
-    margin-bottom: 48px;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .hero-copy p {
-    font-family: var(--body);
-    font-weight: 300;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .hero-copy p:last-child { margin-bottom: 0; }
-
-  .hero-photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  /* ── Page-specific: hero photo aspect ratio ── */
   .hero-photos .photo {
     aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--light-grey);
     cursor: zoom-in;
   }
-  .hero-photos img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .hero-photos .photo:hover img { transform: scale(1.03); }
-
-  /* ═══════════════════════════════════
-     SPREAD SECTIONS
-  ═══════════════════════════════════ */
-  .spread-section {
-    padding: 80px 8%;
-    background: var(--white);
-  }
-  .spread-section:nth-of-type(even) {
-    background: var(--light-grey);
-  }
-
-  .spread-label {
-    display: block;
-    text-align: center;
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--grey);
-    margin-bottom: 24px;
-  }
-
-  .spread {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    aspect-ratio: 16/9;
-    background: var(--white);
-    overflow: hidden;
-    cursor: zoom-in;
-    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.15);
-  }
-  .spread img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    background: var(--white);
-  }
-
-  /* ═══════════════════════════════════
-     PHOTO PAIR SECTION
-  ═══════════════════════════════════ */
-  .photo-pair-section {
-    padding: 80px 8%;
-  }
-  .photo-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .photo-pair .photo {
-    aspect-ratio: 3/4;
-    overflow: hidden;
-    background: var(--light-grey);
-    cursor: zoom-in;
-  }
-  .photo-pair img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .photo-pair .photo:hover img { transform: scale(1.02); }
-
-  /* ═══════════════════════════════════
-     PROJECT FOOTER
-  ═══════════════════════════════════ */
-  .project-footer {
-    background: var(--black);
-    color: var(--white);
-    padding: 80px 8%;
-    text-align: center;
-  }
-  .project-footer .section-label { color: rgba(255,255,255,0.45); }
-  .project-footer a {
-    font-family: var(--heading);
-    font-weight: 300;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    transition: color 0.3s;
-  }
-  .project-footer a:hover { color: var(--gold); }
-  .project-footer a svg { width: 22px; height: 22px; }
-
-  /* ═══════════════════════════════════
-     LIGHTBOX
-  ═══════════════════════════════════ */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    z-index: 1100;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    cursor: zoom-out;
-  }
-  .lightbox.active { opacity: 1; pointer-events: all; }
-  .lightbox img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  .lightbox-close {
-    position: absolute;
-    top: 24px; right: 24px;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
-  }
-  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
-  .lightbox-close svg { width: 22px; height: 22px; }
-
-  /* ═══════════════════════════════════
-     RESPONSIVE
-  ═══════════════════════════════════ */
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
-
-  @media (max-width: 600px) {
-    .page-section { padding: 60px 5%; }
-    .spread-section, .photo-pair-section { padding: 50px 5%; }
-    #project-hero { padding-top: 90px; padding-bottom: 60px; }
-    .project-title { font-size: clamp(2.2rem, 10vw, 3.5rem); letter-spacing: 0.02em; }
-    .breadcrumb { margin-bottom: 28px; font-size: 0.7rem; }
-    .hero-copy p { font-size: 0.95rem; }
-    .hero-photos { gap: 10px; }
-    .photo-pair { gap: 12px; }
-    .spread { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); }
-    .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
-    .lightbox { padding: 20px; }
-    .lightbox-close { top: 14px; right: 14px; width: 38px; height: 38px; }
-  }
 </style>
 </head>
 <body>
-
-<!-- ════════ PAGE CURTAIN ════════ -->
-<div id="pageCurtain" aria-hidden="true"></div>
 
 <!-- ════════ STICKY NAV ════════ -->
 <nav class="sticky-nav" id="stickyNav" aria-label="Project navigation">
@@ -384,21 +48,21 @@
 
 <!-- ════════ PROJECT HERO ════════ -->
 <section id="project-hero" class="page-section">
-  <a href="/#portfolio" class="breadcrumb reveal" style="--delay:150ms">
+  <a href="/#portfolio" class="breadcrumb">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
     Portfolio
   </a>
 
-  <span class="section-label reveal" style="--delay:280ms">Freya Gaskell · Tailoring</span>
-  <h1 class="project-title reveal" style="--delay:420ms">The Modern<br>Dandy</h1>
+  <span class="section-label">Freya Gaskell · Tailoring</span>
+  <h1 class="project-title">The Modern<br>Dandy</h1>
 
   <div class="hero-grid">
-    <div class="hero-copy reveal" style="--delay:580ms">
+    <div class="hero-copy">
       <p>I created a pink and green suit paired with a Liberty's floral shirt, inspired by the idea of the modern dandy.</p>
       <p>The look plays with bold colour and pattern to challenge traditional menswear, drawing on classic tailoring and reimagining it in a contemporary way.</p>
       <p>The styling and design choices are all about confidence and self-expression.</p>
     </div>
-    <div class="hero-photos reveal" style="--delay:720ms">
+    <div class="hero-photos">
       <div class="photo" data-zoom="../img/modern-dandy/01.jpg">
         <img src="../img/modern-dandy/01.jpg" alt="The Modern Dandy — front view in pink and green suit" loading="lazy">
       </div>
@@ -441,10 +105,20 @@
 <!-- ════════ PROJECT FOOTER ════════ -->
 <section class="project-footer">
   <span class="section-label reveal">Continue browsing</span>
-  <a href="/#portfolio" class="reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
-    Back to Portfolio
-  </a>
+  <div class="project-footer-inner reveal">
+    <a href="familiar-spaces.html" class="project-nav-link project-nav-link--prev">
+      <span class="nav-direction">← Previous</span>
+      <span>Familiar Spaces</span>
+    </a>
+    <a href="/#portfolio" class="project-footer-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+      Back to Portfolio
+    </a>
+    <a href="the-feminine-dandy.html" class="project-nav-link project-nav-link--next">
+      <span class="nav-direction">Next →</span>
+      <span>The Feminine Dandy</span>
+    </a>
+  </div>
 </section>
 
 <!-- ════════ LIGHTBOX ════════ -->
@@ -455,80 +129,6 @@
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<script>
-(function() {
-  /* ── Page curtain ── */
-  const curtain = document.getElementById('pageCurtain');
-  requestAnimationFrame(() => requestAnimationFrame(() => curtain.classList.add('lifted')));
-  setTimeout(() => curtain.remove(), 900);
-
-  /* ── Reveal on scroll ── */
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => {
-    if (el.style.getPropertyValue('--delay')) {
-      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
-    } else {
-      observer.observe(el);
-    }
-  });
-
-  /* ── Sticky nav ── */
-  const stickyNav = document.getElementById('stickyNav');
-  function updateStickyNav() {
-    stickyNav.classList.toggle('visible', window.scrollY > 200);
-  }
-  window.addEventListener('scroll', updateStickyNav, { passive: true });
-  updateStickyNav();
-
-  /* ── Back to top ── */
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
-  }, { passive: true });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ── Lightbox ── */
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('[data-zoom]').forEach(el => {
-    el.addEventListener('click', () => {
-      const src = el.getAttribute('data-zoom');
-      const img = el.querySelector('img');
-      openLightbox(src, img ? img.alt : '');
-    });
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
-  });
-  lightboxClose.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-  });
-})();
-</script>
+<script src="../scripts.js" defer></script>
 </body>
 </html>

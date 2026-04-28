@@ -5,62 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Freya Gaskell — Fashion Design Portfolio</title>
 <meta name="description" content="Fashion design portfolio of Freya Gaskell — BA Fashion Design & Technology student at Manchester Metropolitan University. Projects, skills, resume and contact.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freyagaskell.com/">
+<meta property="og:title" content="Freya Gaskell — Fashion Design Portfolio">
+<meta property="og:description" content="Fashion design portfolio of Freya Gaskell — BA Fashion Design & Technology student at Manchester Metropolitan University. Projects, skills, resume and contact.">
+<meta property="og:image" content="https://freyagaskell.com/img/banner.JPG">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Freya Gaskell — Fashion Design Portfolio">
+<meta name="twitter:description" content="Fashion design portfolio of Freya Gaskell — BA Fashion Design & Technology student at Manchester Metropolitan University.">
+<meta name="twitter:image" content="https://freyagaskell.com/img/banner.JPG">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  /* ── Reset & Base ── */
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --gold: #C9A96E;
-    --gold-light: rgba(201, 169, 110, 0.15);
-    --black: #111;
-    --white: #fff;
-    --grey: #888;
-    --light-grey: #f5f5f5;
-    --heading: 'Glacial Indifference', Helvetica, Arial, sans-serif;
-    --body: 'Glacial Indifference', Helvetica, Arial, sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-  }
-
-  body {
-    font-family: var(--body);
-    font-weight: 300;
-    color: var(--black);
-    background: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  ::selection {
-    background: var(--gold);
-    color: var(--white);
-  }
-
-  img { display: block; max-width: 100%; }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* ── Fade-in animation ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── Section common ── */
+  /* ── Section base (index-specific padding) ── */
   section {
     width: 100%;
     padding: 36px 8% 100px;
@@ -80,54 +41,7 @@
     margin-bottom: 60px;
   }
 
-  .section-label {
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--grey);
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  #contact .section-label {
-    color: rgba(255,255,255,0.45);
-  }
-
-  /* ═══════════════════════════════════
-     STICKY NAV
-  ═══════════════════════════════════ */
-  .sticky-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 900;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 8%;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-  }
-
-  .sticky-nav.visible {
-    transform: translateY(0);
-  }
-
-  .sticky-nav-brand {
-    font-family: var(--heading);
-    font-weight: 400;
-    font-size: 0.8rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-
+  /* ── Sticky nav links (index-only) ── */
   .sticky-nav-links {
     display: flex;
     gap: 28px;
@@ -151,45 +65,6 @@
   .sticky-nav-links a.active {
     border-bottom: 1px solid var(--gold);
     padding-bottom: 2px;
-  }
-
-  /* ═══════════════════════════════════
-     BACK TO TOP
-  ═══════════════════════════════════ */
-  .back-to-top {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    z-index: 800;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(10px);
-    transition: opacity 0.3s, transform 0.3s, background 0.3s;
-  }
-
-  .back-to-top.visible {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0);
-  }
-
-  .back-to-top:hover {
-    background: var(--gold);
-  }
-
-  .back-to-top svg {
-    width: 18px;
-    height: 18px;
   }
 
   /* ═══════════════════════════════════
@@ -325,87 +200,6 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-top: 14px;
-  }
-
-  /* ── Project Detail Overlay ── */
-  .project-overlay {
-    position: fixed;
-    inset: 0;
-    background: var(--white);
-    z-index: 1000;
-    overflow-y: auto;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-  }
-
-  .project-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .project-detail {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 8%;
-  }
-
-  .project-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: var(--black);
-    margin-bottom: 40px;
-    transition: color 0.3s;
-  }
-
-  .project-back:hover {
-    color: var(--gold);
-  }
-
-  .project-back svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .project-detail-img {
-    width: 100%;
-    aspect-ratio: 16/10;
-    background: var(--light-grey);
-    margin-bottom: 40px;
-    overflow: hidden;
-  }
-
-  .project-detail-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .project-detail h2 {
-    font-family: var(--heading);
-    font-weight: 400;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .project-detail p {
-    font-family: var(--body);
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #444;
-    max-width: 640px;
   }
 
   /* ═══════════════════════════════════
@@ -661,27 +455,6 @@
       font-size: 0.8rem;
     }
 
-    /* Project overlay */
-    .project-detail {
-      padding: 30px 5%;
-    }
-    .project-back {
-      margin-bottom: 24px;
-      padding: 8px 0;
-    }
-    .project-detail-img {
-      aspect-ratio: 4/3;
-      margin-bottom: 28px;
-    }
-    .project-detail h2 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-    .project-detail p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
     /* Skills */
     .skills-grid {
       grid-template-columns: 1fr;
@@ -736,12 +509,6 @@
     .sticky-nav-links a {
       font-size: 0.7rem;
     }
-    .back-to-top {
-      bottom: 20px;
-      right: 20px;
-      width: 38px;
-      height: 38px;
-    }
   }
 
   /* Small phones */
@@ -763,7 +530,6 @@
 </head>
 <body>
 
-<!-- ════════ HERO ════════ -->
 <!-- ════════ STICKY NAV ════════ -->
 <nav class="sticky-nav" id="stickyNav" aria-label="Main navigation">
   <a href="#hero" class="sticky-nav-brand">Freya Gaskell</a>
@@ -788,7 +554,7 @@
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
   <div class="hero-banner">
-    <img src="img/banner.JPG" alt="Freya Gaskell banner">
+    <img src="img/banner.JPG" alt="Freya Gaskell — fashion portfolio banner" fetchpriority="high">
   </div>
   <div class="hero-content reveal">
     <p class="hero-subtitle">Fashion Design</p>
@@ -818,21 +584,6 @@
     </a>
   </div>
 </section>
-
-<!-- ════════ PROJECT OVERLAY ════════ -->
-<div class="project-overlay" id="projectOverlay" role="dialog" aria-modal="true" aria-label="Project detail">
-  <div class="project-detail">
-    <button class="project-back" id="projectBack">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
-      Back
-    </button>
-    <div class="project-detail-img">
-      <img id="projectImg" src="" alt="">
-    </div>
-    <h2 id="projectTitle"></h2>
-    <p id="projectDesc"></p>
-  </div>
-</div>
 
 <!-- ════════ SKILLS ════════ -->
 <section id="skills">
@@ -924,7 +675,7 @@
   <h2 class="section-heading reveal">Contact</h2>
   <div class="contact-info reveal">
     <a href="mailto:freyagaskell@icloud.com">freyagaskell@icloud.com</a>
-    <span>07711776291</span>
+    <a href="tel:+447711776291">07711776291</a>
   </div>
   <div class="contact-divider reveal"></div>
   <div class="contact-social reveal">
@@ -933,108 +684,14 @@
   </div>
 </section>
 
+<script src="scripts.js" defer></script>
 <script>
 (function() {
-  /* ── Snap to hash on load (prevents smooth-scroll from top on back-navigation) ── */
-  history.scrollRestoration = 'manual';
-  window.addEventListener('load', function() {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) el.scrollIntoView({ behavior: 'instant' });
-    }
-  });
-
-  /* ── Reveal on scroll ── */
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
-
-  /* ── Project data ── */
-  const projects = {
-    'the-feminine-dandy': {
-      title: 'The Feminine Dandy',
-      img: 'img/femine-dandy.jpg',
-      desc: 'An exploration of femininity through the lens of traditional dandyism. This collection reimagines structured menswear silhouettes with soft, romantic fabrics and delicate floral prints — bridging the gap between power dressing and the feminine aesthetic. Each piece balances precision tailoring with fluid draping, creating garments that feel both commanding and effortlessly graceful.'
-    },
-    'between-seasons': {
-      title: 'Between Seasons',
-      img: 'img/between-seasons.jpg',
-      desc: 'A transitional collection that captures the fleeting moments between autumn and spring. Drawing on natural textures and earthy palettes, the garments are designed to layer and adapt. The project investigates modularity in fashion — pieces that transform with the wearer through shifting weather and mood.'
-    },
-    'familiar-spaces': {
-      title: 'Familiar Spaces',
-      img: 'img/familar-spaces.JPG',
-      desc: 'Inspired by the emotional resonance of domestic interiors, Familiar Spaces translates the textures, colours and comfort of home into wearable form. Upholstery-weight fabrics, soft knits and muted tones evoke a sense of warmth and belonging. The silhouettes are generous and enveloping, designed to be lived in.'
-    },
-  };
-
-  /* ── Open project ── */
-  const overlay = document.getElementById('projectOverlay');
-  const projectImg = document.getElementById('projectImg');
-  const projectTitle = document.getElementById('projectTitle');
-  const projectDesc = document.getElementById('projectDesc');
-  const backBtn = document.getElementById('projectBack');
-
-  document.querySelectorAll('.portfolio-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      // If the card is a link (has href), let the browser navigate — skip overlay.
-      if (card.tagName === 'A' && card.getAttribute('href')) return;
-      const key = card.dataset.project;
-      const p = projects[key];
-      if (!p) return;
-      projectImg.src = p.img;
-      projectImg.alt = p.title;
-      projectTitle.textContent = p.title;
-      projectDesc.textContent = p.desc;
-      overlay.classList.add('active');
-      overlay.scrollTop = 0;
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  /* ── Close project ── */
-  function closeProject() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  backBtn.addEventListener('click', closeProject);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closeProject();
-  });
-
-  /* ── Focus trap in overlay ── */
-  overlay.addEventListener('keydown', e => {
-    if (e.key !== 'Tab') return;
-    const focusable = overlay.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  });
-
-  /* ── Sticky nav show/hide ── */
-  const stickyNav = document.getElementById('stickyNav');
-  const heroSection = document.getElementById('hero');
-  const stickyLinks = stickyNav.querySelectorAll('.sticky-nav-links a');
-  const sections = document.querySelectorAll('section[id]');
-
-  function updateStickyNav() {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    stickyNav.classList.toggle('visible', heroBottom <= 60);
-  }
-  window.addEventListener('scroll', updateStickyNav, { passive: true });
-  updateStickyNav();
-
   /* ── Active section highlight + URL sync ── */
+  const stickyLinks = document.querySelectorAll('.sticky-nav-links a');
+  const sections = document.querySelectorAll('section[id]');
   let lastHash = '';
+
   function updateActiveLink() {
     let current = '';
     const atBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10);
@@ -1058,15 +715,6 @@
   }
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
-
-  /* ── Back to top ── */
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
-  }, { passive: true });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
 })();
 </script>
 </body>
