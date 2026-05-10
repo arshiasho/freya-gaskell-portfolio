@@ -168,15 +168,68 @@
     background: var(--white);
   }
 
+  .portfolio-slider-wrapper {
+    position: relative;
+  }
+
   .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .portfolio-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .portfolio-card {
+    flex: 0 0 calc(25% - 23px);
+    scroll-snap-align: start;
     cursor: pointer;
     position: relative;
+  }
+
+  .slider-arrow {
+    position: absolute;
+    top: calc(50% - 18px);
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .slider-arrow:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  .slider-arrow svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .slider-arrow--prev { left: -22px; }
+  .slider-arrow--next { right: -22px; }
+
+  .slider-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .portfolio-card .card-img {
@@ -392,8 +445,10 @@
   /* Tablet */
   @media (max-width: 900px) {
     .portfolio-grid {
-      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+    }
+    .portfolio-card {
+      flex: 0 0 calc(50% - 20px);
     }
     .resume-columns {
       grid-template-columns: 1fr;
@@ -473,10 +528,12 @@
 
     /* Portfolio */
     .portfolio-grid {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      max-width: 100%;
+      gap: 16px;
     }
+    .portfolio-card {
+      flex: 0 0 80%;
+    }
+    .slider-arrow { display: none; }
     .portfolio-card .card-img {
       aspect-ratio: 4/5;
     }
@@ -593,7 +650,15 @@
 <!-- ════════ PORTFOLIO ════════ -->
 <section id="portfolio">
   <h2 class="section-heading reveal">Projects<br>Portfolio</h2>
-  <div class="portfolio-grid">
+  <div class="portfolio-slider-wrapper">
+    <button class="slider-arrow slider-arrow--prev hidden" aria-label="Previous projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+    </button>
+    <div class="portfolio-grid">
+    <a class="portfolio-card reveal" href="projects/final-collection.html">
+      <div class="card-img"><img src="img/final-collection/cover.jpg" alt="Final Collection" loading="lazy"></div>
+      <p class="card-title">Final Collection</p>
+    </a>
     <a class="portfolio-card reveal" href="projects/the-feminine-dandy.html">
       <div class="card-img"><img src="img/femine-dandy.jpg" alt="The Feminine Dandy" loading="lazy"></div>
       <p class="card-title">The Feminine Dandy</p>
@@ -611,6 +676,10 @@
       <p class="card-title">Modern Dandy</p>
     </a>
   </div>
+  <button class="slider-arrow slider-arrow--next" aria-label="Next projects">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg>
+  </button>
+</div>
 </section>
 
 <!-- ════════ SKILLS ════════ -->
@@ -712,6 +781,25 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    const grid = document.querySelector('.portfolio-grid');
+    const prev = document.querySelector('.slider-arrow--prev');
+    const next = document.querySelector('.slider-arrow--next');
+    function updateArrows() {
+      prev.classList.toggle('hidden', grid.scrollLeft <= 1);
+      next.classList.toggle('hidden', grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1);
+    }
+    prev.addEventListener('click', function () {
+      grid.scrollBy({ left: -(grid.clientWidth / 4 + 30), behavior: 'smooth' });
+    });
+    next.addEventListener('click', function () {
+      grid.scrollBy({ left: grid.clientWidth / 4 + 30, behavior: 'smooth' });
+    });
+    grid.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  })();
+</script>
 <script src="scripts.js" defer></script>
 <script>
 (function() {

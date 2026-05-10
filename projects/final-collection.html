@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Collection — Freya Gaskell</title>
+<meta name="description" content="Final Collection — a three-look graduate collection by Freya Gaskell inspired by her grandad's 1970s Hippie Trail journey, exploring nostalgia, storytelling, and heritage through craft and textile design.">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freyagaskell.com/projects/final-collection.html">
+<meta property="og:title" content="Final Collection — Freya Gaskell">
+<meta property="og:description" content="A three-look graduate collection inspired by the 1970s Hippie Trail, exploring nostalgia, storytelling, and heritage through craft and textile design.">
+<meta property="og:image" content="https://freyagaskell.com/img/final-collection/cover.jpg">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Final Collection — Freya Gaskell">
+<meta name="twitter:description" content="A three-look graduate collection inspired by the 1970s Hippie Trail, exploring nostalgia, storytelling, and heritage through craft and textile design.">
+<meta name="twitter:image" content="https://freyagaskell.com/img/final-collection/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ── Hero photo: single cover image ── */
+  .hero-photos {
+    display: block;
+  }
+  .hero-photos .photo {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--light-grey);
+    cursor: zoom-in;
+  }
+  .hero-photos .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .hero-photos .photo:hover img {
+    transform: scale(1.04);
+  }
+
+  /* ── Photo triple: 3-up grid ── */
+  .photo-triple-section {
+    padding: 80px 8%;
+  }
+  .photo-triple-section .spread-label {
+    display: block;
+    margin-bottom: 28px;
+  }
+  .photo-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .photo-triple .photo {
+    aspect-ratio: 2/3;
+    overflow: hidden;
+    background: var(--light-grey);
+    cursor: zoom-in;
+  }
+  .photo-triple .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .photo-triple .photo:hover img {
+    transform: scale(1.04);
+  }
+  .photo-triple-features {
+    margin-top: 20px;
+    font-family: var(--body);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid-grey, #888);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .photo-triple-features span::before {
+    content: '— ';
+  }
+
+  @media (max-width: 700px) {
+    .hero-photos {
+      grid-template-columns: 1fr;
+    }
+    .photo-triple {
+      grid-template-columns: 1fr;
+    }
+    .photo-triple-features {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .photo-triple-section {
+      padding: 48px 6%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ STICKY NAV ════════ -->
+<nav class="sticky-nav" id="stickyNav" aria-label="Project navigation">
+  <a href="/#portfolio" class="sticky-nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+    Back to Portfolio
+  </a>
+  <a href="/" class="sticky-nav-brand">Freya Gaskell</a>
+</nav>
+
+<!-- ════════ BACK TO TOP ════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+</button>
+
+<!-- ════════ PROJECT HERO — Look 1 ════════ -->
+<section id="project-hero" class="page-section">
+  <a href="/#portfolio" class="breadcrumb">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+    Portfolio
+  </a>
+
+  <span class="section-label">Freya Gaskell · Final Collection</span>
+  <h1 class="project-title">Final<br>Collection</h1>
+
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p>My project draws inspiration from my grandad's journey along the 1970s "Hippie Trail," where he travelled across Europe and Asia, collecting mementos and stories that have informed the development of my work.</p>
+      <p>Influenced by the era's spirit of peace, freedom, and rejection of materialism, the project explores themes of nostalgia, storytelling, and heritage through craft and textile design.</p>
+    </div>
+    <div class="hero-photos">
+      <div class="photo" data-zoom="../img/final-collection/cover.jpg">
+        <img src="../img/final-collection/cover.jpg" alt="Final Collection — cover" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ LOOK 1 ════════ -->
+<section class="photo-triple-section">
+  <span class="spread-label reveal">Look 1</span>
+  <div class="photo-triple">
+    <div class="photo reveal" data-zoom="../img/final-collection/01.jpg">
+      <img src="../img/final-collection/01.jpg" alt="Final Collection — Look 1, view one" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/02.jpg">
+      <img src="../img/final-collection/02.jpg" alt="Final Collection — Look 1, view two" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/03.jpg">
+      <img src="../img/final-collection/03.jpg" alt="Final Collection — Look 1, view three" loading="lazy">
+    </div>
+  </div>
+  <div class="photo-triple-features reveal">
+    <span>Laser cut suede patchwork</span>
+    <span>Hand embroidery</span>
+    <span>Upcycled textile composition</span>
+    <span>Knit cable detailing</span>
+  </div>
+</section>
+
+<!-- ════════ LOOK 2 ════════ -->
+<section class="photo-triple-section">
+  <span class="spread-label reveal">Look 2</span>
+  <div class="photo-triple">
+    <div class="photo reveal" data-zoom="../img/final-collection/04.jpg">
+      <img src="../img/final-collection/04.jpg" alt="Final Collection — Look 2, view one" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/05.jpg">
+      <img src="../img/final-collection/05.jpg" alt="Final Collection — Look 2, view two" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/06.jpg">
+      <img src="../img/final-collection/06.jpg" alt="Final Collection — Look 2, view three" loading="lazy">
+    </div>
+  </div>
+  <div class="photo-triple-features reveal">
+    <span>3D printed &amp; leather moulded detail jacket</span>
+    <span>Sashiko patchwork jeans</span>
+    <span>Knitwear</span>
+  </div>
+</section>
+
+<!-- ════════ LOOK 3 ════════ -->
+<section class="photo-triple-section">
+  <span class="spread-label reveal">Look 3</span>
+  <div class="photo-triple">
+    <div class="photo reveal" data-zoom="../img/final-collection/07.jpg">
+      <img src="../img/final-collection/07.jpg" alt="Final Collection — Look 3, view one" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/08.jpg">
+      <img src="../img/final-collection/08.jpg" alt="Final Collection — Look 3, view two" loading="lazy">
+    </div>
+    <div class="photo reveal" data-zoom="../img/final-collection/09.jpg">
+      <img src="../img/final-collection/09.jpg" alt="Final Collection — Look 3, view three" loading="lazy">
+    </div>
+  </div>
+  <div class="photo-triple-features reveal">
+    <span>Hand embroidery &amp; hand cutwork</span>
+    <span>Laser cut suede patchwork</span>
+    <span>Knitwear</span>
+  </div>
+</section>
+
+<!-- ════════ SPREAD — Moodboard ════════ -->
+<section class="spread-section">
+  <span class="spread-label reveal">Moodboard</span>
+  <div class="spread reveal" data-zoom="../img/final-collection/spread-10.jpg">
+    <img src="../img/final-collection/spread-10.jpg" alt="Moodboard — sentimental, storytelling, nostalgia, craft, heritage" loading="lazy">
+  </div>
+</section>
+
+<!-- ════════ SPREAD — Development ════════ -->
+<section class="spread-section">
+  <span class="spread-label reveal">Development</span>
+  <div class="spread reveal" data-zoom="../img/final-collection/spread-11.jpg">
+    <img src="../img/final-collection/spread-11.jpg" alt="Development — patchwork construction detail and technical specification" loading="lazy">
+  </div>
+</section>
+
+<!-- ════════ SPREAD — Consumer ════════ -->
+<section class="spread-section">
+  <span class="spread-label reveal">Consumer</span>
+  <div class="spread reveal" data-zoom="../img/final-collection/spread-12.jpg">
+    <img src="../img/final-collection/spread-12.jpg" alt="Consumer — target customer profile, vintage-inspired, expressive, slow fashion" loading="lazy">
+  </div>
+</section>
+
+<!-- ════════ PROJECT FOOTER ════════ -->
+<section class="project-footer">
+  <span class="section-label reveal">Continue browsing</span>
+  <div class="project-footer-inner reveal">
+    <a href="modern-dandy.html" class="project-nav-link project-nav-link--prev">
+      <span class="nav-direction">← Previous</span>
+      <span>The Modern Dandy</span>
+    </a>
+    <a href="/#portfolio" class="project-footer-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg>
+      Back to Portfolio
+    </a>
+    <a href="the-feminine-dandy.html" class="project-nav-link project-nav-link--next">
+      <span class="nav-direction">Next →</span>
+      <span>The Feminine Dandy</span>
+    </a>
+  </div>
+</section>
+
+<!-- ════════ LIGHTBOX ════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M6 18L18 6"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="../scripts.js" defer></script>
+</body>
+</html>
